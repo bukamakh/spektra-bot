@@ -1,7 +1,7 @@
 name: Spektra Bot
 description: Slack Spektra bot that lets you easily interact with your team from Spektra mobile app.
-avatar: resources/avatar.png
-background: resources/background.png
+avatar: resources/logo.png
+background: resources/header.png
 config:
   - name: LOG_LEVEL
     friendly_name: Severity level to show for logging.
