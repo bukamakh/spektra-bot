@@ -13,4 +13,4 @@ config:
     type: secret
     default: not secret though
 screenshots:
-  - screenshot:
+  - screenshot: resources/screenshot1.png
