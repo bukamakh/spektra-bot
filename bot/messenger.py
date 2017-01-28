@@ -29,12 +29,13 @@ class Messenger(object):
 
     def write_to_firebase_test(self, channel_id):
         bot_uid = self.clients.bot_user_id()
+        strd = ['1', '2', '3', '4', '5']
         database = db.firebase.database()
         data = {
-            "slackbot": bot_uid
+            "slackbot": random.choice(strd)
         }
         results = database.child("testbase").push(data)
-        self.send_message(channel_id, results)
+        self.send_message(channel_id, "Meow")
 
     def write_greeting(self, channel_id, user_id):
         greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations']
