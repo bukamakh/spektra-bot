@@ -44,7 +44,7 @@ class RtmEventHandler(object):
                     self.msg_writer.write_help_message(event['channel'])
                 elif re.search('hi|hey|hello|howdy', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
-                elif re.search('testfirebase'):
+                elif re.search('ttt', msg_txt):
                     self.msg_writer.write_to_firebase_test(event['channel'])
                 elif 'attachment' in msg_txt:
                     self.msg_writer.demo_attachment(event['channel'])
