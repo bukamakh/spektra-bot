@@ -2,6 +2,7 @@
 
 import logging
 import random
+import db
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +26,14 @@ class Messenger(object):
             "> `hi <@" + bot_uid + ">` - Get yourself a warm greeting. :wave:",
             "> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:")
         self.send_message(channel_id, txt)
+
+    def write_to_firebase_test(self, channel_id):
+        bot_uid = self.clients.bot_user_id()
+        database = db.firebase.database()
+        data = {
+            "slackbot": bot_uid
+        }
+        results = database.child("testbase").push(data)
 
     def write_greeting(self, channel_id, user_id):
         greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations']

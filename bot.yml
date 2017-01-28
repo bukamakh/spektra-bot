@@ -14,3 +14,5 @@ config:
     default: not secret though
 screenshots:
   - screenshot: resources/screenshot1.png
+slackscopes:
+  - commands
