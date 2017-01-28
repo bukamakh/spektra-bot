@@ -15,6 +15,8 @@ def spawn_bot():
 
 class SlackBot(object):
     def __init__(self, token=None):
+        
+
         """Creates Slacker Web and RTM clients with API Bot User token.
 
         Args:
@@ -25,6 +27,7 @@ class SlackBot(object):
         if token is not None:
             self.clients = SlackClients(token)
 
+    
     def start(self, resource):
         """Creates Slack Web and RTM clients for the given Resource
         using the provided API tokens and configuration, then connects websocket
