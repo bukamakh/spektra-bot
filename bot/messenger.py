@@ -34,6 +34,7 @@ class Messenger(object):
             "slackbot": bot_uid
         }
         results = database.child("testbase").push(data)
+        self.send_message(channel_id, results)
 
     def write_greeting(self, channel_id, user_id):
         greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations']
