@@ -20,6 +20,8 @@ class RtmEventHandler(object):
         if event_type == 'error':
             # error
             self.msg_writer.write_error(event['channel'], json.dumps(event))
+        elif event_type == 'slash_command':
+            print("WOW SLASH COMMAND IS HIER")
         elif event_type == 'message':
             # message was sent to channel
             self._handle_message(event)
@@ -42,11 +44,10 @@ class RtmEventHandler(object):
                 # e.g. user typed: "@pybot tell me a joke!"
                 if 'help' in msg_txt:
                     self.msg_writer.write_help_message(event['channel'])
-                elif re.search('hi|hey|hello|howdy', msg_txt):
+                elif re.search('hi|hey|hello|howdy|heya', msg_txt):
                     self.msg_writer.write_greeting(event['channel'], event['user'])
-                elif 'ttt' in msg_txt:
-                    print("TTT called")
-                    self.msg_writer.write_to_firebase_test(event['channel'])
+                elif 'savethis' in msg_txt: # savethis #040404 #040404 #040404 #040404 #040404 palette1 true 
+                    self.msg_writer.write_palette_to_database(event['channel'], event['user'])
                 elif 'attachment' in msg_txt:
                     self.msg_writer.demo_attachment(event['channel'])
                 elif 'echo' in msg_txt:

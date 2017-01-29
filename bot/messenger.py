@@ -27,15 +27,14 @@ class Messenger(object):
             "> `<@" + bot_uid + "> attachment` - I'll demo a post with an attachment using the Web API. :paperclip:")
         self.send_message(channel_id, txt)
 
-    def write_to_firebase_test(self, channel_id):
+    def write_palette_to_database(self, channel_id, user_id):
         bot_uid = self.clients.bot_user_id()
-        strd = ['1', '2', '3', '4', '5']
         database = db.firebase.database()
         data = {
             "slackbot": random.choice(strd)
         }
         results = database.child("testbase").push(data)
-        self.send_message(channel_id, "Meow")
+        self.send_message(channel_id, "")
 
     def write_greeting(self, channel_id, user_id):
         greetings = ['Hi', 'Hello', 'Nice to meet you', 'Howdy', 'Salutations']
